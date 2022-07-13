@@ -28,7 +28,7 @@ const SongList = () => {
   };
 
   useEffect(() => {
-    const fetchData = fetch("api.deezer.com/chart", {
+    const fetchData = fetch("https://api.deezer.com/chart", {
       method: "GET",
       mode: "cors",
       headers: {

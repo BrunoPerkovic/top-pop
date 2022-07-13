@@ -44,7 +44,7 @@ const SongList = () => {
         } else {
           console.log("not successful");
         }
-
+        console.log(res);
         return res.json();
       })
       .then((data) => {

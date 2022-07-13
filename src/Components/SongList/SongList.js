@@ -28,16 +28,19 @@ const SongList = () => {
   };
 
   useEffect(() => {
-    const fetchData = fetch("https://api.deezer.com/chart", {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        /*Origin: "http://localhost",
+    const fetchData = fetch(
+      "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart",
+      {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          /*Origin: "http://localhost",
           "X-Requested-With": "XMLHttpRequest",*/
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    )
       .then((res) => {
         if (res.ok) {
           console.log("success");

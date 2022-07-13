@@ -7,6 +7,7 @@ const SongList = () => {
   const [songs, setSongs] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [songDetails, setSongDetails] = useState("");
+  const [rerender, setRerender] = useState(false);
 
   const lengthConverter = (time) => {
     let sec_num = parseInt(time, 10);
@@ -66,13 +67,45 @@ const SongList = () => {
     });
   };
 
-  const option = [
-    { lengthAscending: ascendSort },
-    { lengthDescending: descendSort },
+  const options = [
+    { label: "Ascending", value: "ASC" },
+    { label: "Descending", value: "DESC" },
   ];
+
+  const pickSort = (option) => {
+    console.log(option.value);
+    if (option.value === "DESC") {
+      setSongs(
+        songs.sort((a, b) => {
+          if (a.duration < b.duration) {
+            return 1;
+          } else if (a.duration > b.duration) {
+            return -1;
+          } else {
+            return 0;
+          }
+        })
+      );
+    } else {
+      setSongs(
+        songs.sort((a, b) => {
+          if (a.duration > b.duration) {
+            return 1;
+          } else if (a.duration < b.duration) {
+            return -1;
+          } else {
+            return 0;
+          }
+        })
+      );
+    }
+    console.log(songs);
+    setRerender(!rerender);
+  };
+
   return (
     <>
-      <Select options={option} placeholder="Sort by: " />
+      <Select options={options} onChange={pickSort} />
       <div className="songlist">
         {songs.map((song) => {
           return (

@@ -7,7 +7,7 @@ const MODAL_STYLES = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  backgroundColor: "#FFF",
+  backgroundColor: "black",
   padding: "50px",
   zIndex: 1000,
 };
@@ -28,11 +28,28 @@ const Modal = ({ open, number, title, artist, length, closeModal }) => {
   return (
     <div style={OVERLAY_STYLES}>
       <div className="modal" style={MODAL_STYLES}>
-        <button onClick={closeModal}>close</button>
-        <div>{number}</div>
-        <div>{title}</div>
-        <div>{artist.name}</div>
-        <div>{length}</div>
+        <button className="button" onClick={closeModal}>
+          X
+        </button>
+        <div className="nameContainer">
+          <span>Artist:</span>
+          <span>{artist.name}</span>
+        </div>
+
+        <div className="trackContainer">
+          <span>Song:</span>
+          <span>{title}</span>
+        </div>
+
+        <div className="durationContainer">
+          <span>Length:</span>
+          <span>{length}</span>
+        </div>
+
+        <div className="numberContainer">
+          <span>Position:</span>
+          <span>{number}</span>
+        </div>
       </div>
     </div>
   );

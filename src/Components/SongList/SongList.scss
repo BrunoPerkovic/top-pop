@@ -3,7 +3,8 @@
   margin: 0 auto;
 }
 .songlist {
-  background-color: rgb(245, 130, 32);
+  background-color: black;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -12,12 +13,16 @@
   color: aqua;
 
   .songContainer {
+    background-color: antiquewhite;
+    color: rgb(245, 130, 32);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
     width: 80%;
+    border-style: groove;
+    border-color: aqua;
 
     .artistContainer {
       display: flex;
